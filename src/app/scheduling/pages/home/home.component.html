@@ -53,13 +53,14 @@
         [isDeleted]="scheduling.isDeleted"
         (click)="navigateToScheduling(scheduling.id)"
       ></app-scheduling-card>
+
+      <app-empty-state
+        *ngIf="schedulings.length <= 0"
+        title="Ops, não encontramos nenhum agendamento"
+        subtitle="Que tal criar um novo ? basta clicar abaixo!"
+        actionText="Criar Agendamento"
+        (action)="navigateToAddScheduling()"
+      ></app-empty-state>
     </div>
-    <app-empty-state
-      *ngIf="schedulings.length <= 0"
-      title="Ops, não encontramos nenhum agendamento"
-      subtitle="Que tal criar um novo ? basta clicar abaixo!"
-      actionText="Criar Agendamento"
-      (action)="navigateToAddScheduling()"
-    ></app-empty-state>
   </ng-container>
 </div>
