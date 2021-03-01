@@ -1,0 +1,34 @@
+<div
+  class="root"
+  matRipple
+  [matRippleCentered]="false"
+  [matRippleUnbounded]="false"
+  (click)="click.emit()"
+>
+  <div *ngIf="hasTopDivider" class="divider-top"></div>
+  <mat-card class="card">
+    <mat-card-content>
+      <div class="content">
+        <span class="column-data">{{ name }}</span>
+        <span class="column-data">
+          <small>Hora de envio:</small>
+          <br />
+          <strong>{{ date | date: 'dd/MM/YYYY  HH:mm' }}</strong>
+        </span>
+        <span class="column-data">
+          <small>Será enviado para:</small>
+          <br />
+          <strong>{{ phones }} Contatos</strong>
+        </span>
+        <span
+          class="column-data chip"
+          [class.chip-active]="isDeleted === false"
+          [class.chip-deleted]="isDeleted"
+        >
+          {{ isDeleted ? 'Cancelado' : 'Ativo' }}
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="divider-bottom"></div>
+</div>

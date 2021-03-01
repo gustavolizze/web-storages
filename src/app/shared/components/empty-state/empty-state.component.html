@@ -1,0 +1,13 @@
+<div class="root">
+  <img src="assets/list-is-empty.png" class="img" [alt]="title" />
+  <h2 class="title">{{ title }}</h2>
+  <p class="subtitle">{{ subtitle }}</p>
+  <button
+    *ngIf="actionText"
+    (click)="handleActionClick()"
+    mat-raised-button
+    color="primary"
+  >
+    {{ actionText }}
+  </button>
+</div>

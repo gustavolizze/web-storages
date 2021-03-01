@@ -1,0 +1,5 @@
+@import 'variables';
+@import 'reset';
+
+@include mat-core();
+@include angular-material-theme($theme);

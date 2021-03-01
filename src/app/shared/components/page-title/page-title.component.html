@@ -1,0 +1,7 @@
+<div class="root">
+  <h1 class="title">
+    {{ title }}
+    <ng-content *ngIf="!title"></ng-content>
+  </h1>
+  <p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
+</div>

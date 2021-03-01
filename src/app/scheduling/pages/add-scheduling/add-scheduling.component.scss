@@ -1,0 +1,51 @@
+.root {
+  height: 100%;
+}
+
+.stepper {
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+}
+
+.field {
+  margin: 10px 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back {
+  margin-right: 10px;
+}
+
+.btn {
+  margin: 20px 0;
+}
+
+.contact-input {
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.contact-field {
+  display: flex;
+  align-items: flex-start;
+}
+
+.actions {
+  margin-top: 20px;
+}

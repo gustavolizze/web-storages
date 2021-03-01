@@ -1,0 +1,88 @@
+@import 'variables';
+
+.root {
+  width: 100%;
+  background: #fff;
+  border-left: 1px solid #dadce0;
+  border-right: 1px solid #dadce0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.divider-top {
+  margin-bottom: 7px;
+}
+
+.divider-bottom {
+  margin-top: 7px;
+}
+
+.divider-bottom,
+.divider-top {
+  background: #dadce0;
+  height: 1px;
+  border: none;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-data {
+  flex: 1 0 auto;
+  width: calc(100% / 4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.chip {
+  flex: 0 0 auto;
+  border-radius: 20px;
+  padding: 10px 0px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.chip-active {
+  background: #cbe1f9;
+  color: $primary;
+}
+
+.chip-deleted {
+  background: #ffc6d9;
+  color: $accent;
+}
+
+@media (max-width: $md) {
+  .root {
+    margin: 10px 0;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .column-data {
+    flex: 1 0 auto;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .chip {
+    margin: 5px auto;
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,38 @@
+<div class="root" [class.loading]="loading">
+  <mat-spinner *ngIf="loading" color="primary" [diameter]="50"> </mat-spinner>
+  <mat-card *ngIf="loading === false" class="card">
+    <mat-card-content>
+      <app-page-title
+        title="Editar Agendamento"
+        subtitle="Visualize ou modifique os dados do seu agendamento!"
+      ></app-page-title>
+      <div *ngIf="scheduling.isDeleted" class="alert-container">
+        <span class="alert-title">Atenção!</span>
+        <span class="alert-message"
+          >Este agendamento foi arquivado, isso significa que o mesmo foi
+          cancelado!</span
+        >
+      </div>
+      <app-scheduling-form [form]="form"></app-scheduling-form>
+      <div class="actions">
+        <button
+          (click)="delete()"
+          mat-flat-button
+          color="accent"
+          class="btn-margin-right"
+          *ngIf="scheduling.isDeleted === false"
+        >
+          Arquivar
+        </button>
+        <button
+          *ngIf="scheduling.isDeleted === false"
+          (click)="update()"
+          mat-flat-button
+          color="primary"
+        >
+          Salvar
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

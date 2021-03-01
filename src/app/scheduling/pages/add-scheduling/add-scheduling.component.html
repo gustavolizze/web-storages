@@ -1,0 +1,51 @@
+<div class="root">
+  <app-page-title
+    title="Novo Agendamento"
+    subtitle="Informe os dados corretamente para cadastrar um novo agendamento"
+  ></app-page-title>
+  <mat-vertical-stepper #stepper [linear]="true" class="stepper">
+    <mat-step [stepControl]="form" [editable]="true">
+      <ng-template matStepLabel>Dados do Agendamento</ng-template>
+      <app-scheduling-form [form]="form"></app-scheduling-form>
+      <button mat-flat-button matStepperNext class="btn" color="primary">
+        Próximo passo
+      </button>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Confirmar Agendamento</ng-template>
+      <div>
+        <h4 class="title">Dados do Agendamento:</h4>
+        <div class="row">
+          <p class="info">
+            <strong>Nome do agendamento:</strong>
+            <br />
+            {{ form.value.name }}
+          </p>
+          <p class="info">
+            <strong>Data para envio da mensagem:</strong>
+            <br />
+            {{ form.value.date | date: 'medium' }}
+          </p>
+        </div>
+        <p class="info">
+          <strong> Total de Contatos para envio da mensagem: </strong>
+          <br />
+          {{ totalPhones }}
+        </p>
+        <p class="info">
+          <strong>Mensagem:</strong>
+          <br />
+          {{ form.value.message }}
+        </p>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious color="accent" class="back">
+          Voltar
+        </button>
+        <button (click)="create()" mat-flat-button color="primary">
+          Criar agendamento!
+        </button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

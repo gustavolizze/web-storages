@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="title">{{ data?.title }}</h1>
+<div mat-dialog-content class="content">
+  <img src="assets/done.png" alt="Concluido" class="img" />
+  <p class="text-body">O que deseja fazer agora ?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button [mat-dialog-close]="data.action1Value" color="accent">
+    {{ data?.actionText1 }}
+  </button>
+  <button
+    mat-flat-button
+    [mat-dialog-close]="data.action2Value"
+    color="primary"
+    cdkFocusInitial
+  >
+    {{ data?.actionText2 }}
+  </button>
+</div>

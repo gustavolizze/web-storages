@@ -1,0 +1,131 @@
+<form [formGroup]="form" novalidate>
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Nome do agendamento</mat-label>
+    <input
+      formControlName="name"
+      matInput
+      placeholder="Defina um nome para o agendamento"
+    />
+    <mat-error>
+      <app-form-errors name="name"></app-form-errors>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Mensagem</mat-label>
+    <textarea
+      formControlName="message"
+      matInput
+      placeholder="Qual a mensagem que você quer enviar ?"
+    ></textarea>
+    <mat-error>
+      <app-form-errors name="message"></app-form-errors>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Data do agendamento</mat-label>
+    <input
+      formControlName="date"
+      matInput
+      (click)="agendamento.open()"
+      (focus)="agendamento.open()"
+      [ngxMatDatetimePicker]="agendamento"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="$any(agendamento)"
+    ></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #agendamento>
+      <ng-template>
+        <span>OK</span>
+      </ng-template>
+    </ngx-mat-datetime-picker>
+    <mat-error>
+      <app-form-errors name="date"></app-form-errors>
+    </mat-error>
+  </mat-form-field>
+  <input
+    #csvInput
+    type="file"
+    hidden
+    accept=".csv, .txt"
+    (change)="form.loadCsv($event)"
+    [multiple]="false"
+  />
+  <button
+    type="button"
+    mat-flat-button
+    color="primary"
+    class="btn btn-csv"
+    (click)="csvInput.click()"
+  >
+    Importar CSV
+  </button>
+
+  <button
+    type="button"
+    *ngIf="form.phones.controls.length > 1"
+    mat-flat-button
+    color="accent"
+    class="btn"
+    (click)="form.clearPhones()"
+  >
+    Limpar Contatos
+  </button>
+
+  <div
+    #phonesTemplate
+    class="contact-field"
+    formArrayName="phones"
+    *ngFor="let phone of form.phones.controls; index as currentIndex"
+  >
+    <mat-form-field appearance="fill" class="contact-input">
+      <mat-label>Número de Telefone</mat-label>
+      <input
+        matInput
+        prefix="+55 "
+        mask="(00) 0 0000-0000"
+        [specialCharacters]="['(', ')', ' ', '-']"
+        [formControlName]="currentIndex"
+        placeholder="Digite algum número aqui"
+      />
+      <mat-error
+        ><app-form-errors
+          name="phones"
+          [arrayIndex]="currentIndex"
+        ></app-form-errors
+      ></mat-error>
+    </mat-form-field>
+    <mat-error><app-form-errors name="phones"></app-form-errors></mat-error>
+    <button
+      type="button"
+      mat-mini-fab
+      color="accent"
+      (click)="form.removePhone(currentIndex)"
+      [disabled]="form.phones.controls.length <= 1"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <button
+    type="button"
+    mat-button
+    class="btn"
+    color="primary"
+    (click)="form.addPhone()"
+  >
+    Adicionar outro Contato
+  </button>
+
+  <button
+    type="button"
+    *ngIf="form.phones.controls.length > 3"
+    mat-mini-fab
+    color="accent"
+    class="down-fab"
+    (click)="bottom.scrollIntoView({ behavior: 'smooth' })"
+  >
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+
+  <div #bottom></div>
+</form>

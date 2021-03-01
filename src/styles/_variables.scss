@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+// Theme configuration
+$app-primary: mat-palette($mat-blue, 800, 500, 900);
+$app-accent: mat-palette($mat-pink, A200, A100, A400);
+$app-warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$text: #000;
+$text-secondary: #888;
+$xl: 1920px;
+$lg: 1280px;
+$md: 960px;
+$sm: 600px;
+$xs: 0px;
+$spacing: 8px;

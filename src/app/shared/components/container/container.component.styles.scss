@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'helpers';
+
+.root {
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: spacing(2);
+  padding-right: spacing(2);
+}
+
+@media (min-width: $sm) {
+  .root {
+    max-width: var($sm);
+    padding-left: spacing(3);
+    padding-right: spacing(3);
+  }
+}
+
+@media (min-width: $md) {
+  .root {
+    max-width: var($md);
+  }
+}
