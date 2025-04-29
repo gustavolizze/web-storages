@@ -1,9 +1,9 @@
-# PreventChallenge
+# Web Storages Challenge 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
-## Instruções
+## Instructions
 
-Instalar dependencias: `npm i`
-Rodar o projeto: `npm start`
-Dev Server: `http://localhost:4200/`
+install dependencies: `npm i`
+run: `npm start`
+server: `http://localhost:4200/`
